@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const imagemin = require("gulp-imagemin");
 
 /*
     -- TOP LEVEL FUNCTIONS --
@@ -17,6 +18,11 @@ gulp.task("message", async function () {
 gulp.task("copyHtml", async function () {
   gulp.src("src/*.html").pipe(gulp.dest("dist"));
 });
+
+// Optimize Images
+gulp.task("imageMin", () =>
+  gulp.src("src/images/*").pipe(imagemin()).pipe(gulp.dest("dist/images"))
+);
 
 gulp.task("default", async function () {
   return console.log("Gulp is running...");
