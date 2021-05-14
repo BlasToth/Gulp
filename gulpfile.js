@@ -29,6 +29,4 @@ gulp.task("minify", async function () {
   gulp.src("src/js/*.js").pipe(uglify()).pipe(gulp.dest("dist/js"));
 });
 
-gulp.task("default", async function () {
-  return console.log("Gulp is running...");
-});
+gulp.task("default", ["copyHtml", "imageMin", "minify"]);
